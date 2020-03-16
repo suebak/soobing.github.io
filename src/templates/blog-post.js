@@ -1,13 +1,13 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
-
+import Layout from '../components/layout'
 // import '../css/blog-post.css';
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data
   return (
-    <div className="blog-post-container">
+    <Layout className="blog-post-container">
       <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
@@ -16,7 +16,7 @@ export default function Template({ data }) {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </div>
-    </div>
+    </Layout>
   )
 }
 
