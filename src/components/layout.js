@@ -11,7 +11,30 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import styled from "@emotion/styled"
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 1068px){
+    flex-direction: column;
+    background: blue;
+  }
+`
+const Title = styled.div`
+  background: pink;
+  width: 300px;
+  height: 100vh;
+  @media screen and (max-width: 1068px){
+    margin: 0 auto;
+    max-height: 90px; /*TODO: 컨텐츠 넣으면 없애기 */
+  }
+`
+const Contents = styled.div`
+  width: 768px;
+  margin: 0 auto;
+  background: yellowgreen;
+`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -24,23 +47,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+    <Wrapper>
+      <Title></Title>
+      <Contents>
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      </Contents>
+    </Wrapper>
   )
 }
 
