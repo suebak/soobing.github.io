@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Mover from "../components/mover"
 import Header from "./header"
 import "./layout.css"
 import styled from "@emotion/styled"
@@ -59,7 +60,7 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Title>
-
+        <Mover />
         <div>Soobin Bak</div>
         <div>Frontend Developer</div>
       </Title>

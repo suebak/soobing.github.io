@@ -7,7 +7,7 @@ const Mover = () => {
   let x = 50;
   let y = 50;
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(500, 500).parent(canvasParentRef);
+    p5.createCanvas(100, 100).parent(canvasParentRef);
   };
   const draw = p5 => {
     p5.background(0);
