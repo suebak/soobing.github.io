@@ -37,6 +37,9 @@ const NavSlide = styled.div`
     right: 30px;
   }
 `
+const TextDiv = styled.div`
+  position: relative;
+`
 const Title = styled.div`
   position: relative;
   display: flex;
@@ -46,11 +49,8 @@ const Title = styled.div`
   background: #ffeb3b5e;
   width: 300px;
   height: 100vh;
-  font-family: 'Permanent Marker', cursive;
-  & > div {
-    :nth-of-type(2) {
-      font-family: 'Rock Salt', cursive;
-    }
+  & > ${TextDiv} {
+    font-family: 'Permanent Marker', cursive;
   }
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     margin: 0 auto;
@@ -182,8 +182,8 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Title>
         {typeof window !== 'undefined' && <P5Wrapper sketch={Mover} />}
-        <div>Soobin Bak</div>
-        <div>Frontend Developer</div>
+        <TextDiv style={{ fontFamily: `'Rock Salt', cursive` }}>Soobin Bak</TextDiv>
+        <TextDiv>Frontend Developer</TextDiv>
         <NavSlide
           ref={navSliderRef}
           onClick={showNav}
@@ -191,7 +191,6 @@ const Layout = ({ children }) => {
           onFocus={showNav}
           onMouseOut={hideNav}
           onBlur={hideNav} />
-
       </Title>
       <Nav ref={navRef}
         onMouseOver={showNav}
