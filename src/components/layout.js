@@ -136,9 +136,14 @@ const Layout = ({ children }) => {
       .map(item => !!item ? item.style.display = 'none' : '');
   }
   useEffect(() => {
-    window && window.addEventListener('resize', onResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', onResize);
+    }
+
     return () => {
-      window && window.removeEventListener('resize', onResize);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', onResize);
+      }
     }
   })
 
