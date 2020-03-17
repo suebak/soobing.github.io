@@ -136,9 +136,9 @@ const Layout = ({ children }) => {
       .map(item => !!item ? item.style.display = 'none' : '');
   }
   useEffect(() => {
-    window.addEventListener('resize', onResize);
+    window && window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener('resize', onResize);
+      window && window.removeEventListener('resize', onResize);
     }
   })
 
