@@ -22,7 +22,7 @@ const Mover = () => {
     ypos = p5.height / 2;
   };
   const draw = p5 => {
-    p5.background(0);
+    p5.background('#fd8b66');
     // Update the position of the shape
     xpos = xpos + xspeed * xdirection;
     ypos = ypos + yspeed * ydirection;

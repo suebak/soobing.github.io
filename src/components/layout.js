@@ -44,7 +44,7 @@ const Title = styled.div`
 const Contents = styled.div`
   width: 768px;
   margin: 0 auto;
-  background: yellowgreen;
+  /* background: yellowgreen; */
   font-family: 'Noto Sans KR', sans-serif;
 `
 const Layout = ({ children }) => {
@@ -65,9 +65,8 @@ const Layout = ({ children }) => {
         <div>Soobin Bak</div>
         <div>Frontend Developer</div>
       </Title>
+      <Header siteTitle={data.site.siteMetadata.title} />
       <Contents>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        나는 한국인이다
         <main>{children}</main>
       </Contents>
     </Wrapper>
