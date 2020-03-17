@@ -22,13 +22,13 @@ const Wrapper = styled.div`
   }
 `
 const NavSlide = styled.div`
-  width: 30px;
+  width: 3px;
   height: 100vh;
   position: absolute;
   right: 0;
-  background: red;
+  background: #ff6439;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
-    height: 30px;
+    height: 3px;
     width: 100%;
     bottom: 0;
   }
