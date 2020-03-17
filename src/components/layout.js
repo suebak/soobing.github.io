@@ -37,7 +37,8 @@ const Title = styled.div`
   }
   @media screen and (max-width: 1068px){
     margin: 0 auto;
-    max-height: 90px; /*TODO: 컨텐츠 넣으면 없애기 */
+    height: 250px;
+    width: 100%;
   }
 `
 const Contents = styled.div`
