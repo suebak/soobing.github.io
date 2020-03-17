@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "@emotion/styled"
 
-
 const H1 = styled.h1`
   margin: 0;
   height: 35px;
@@ -23,8 +22,10 @@ const H1 = styled.h1`
 const StyledHeader = styled.header`
  background: #ff6439;
  border-bottom: 1px solid gray;
- width: 40px;
+ width: ${props => props.show ? '40px' : '0px'};
+ transition: 0.5s;
  & > ${H1} {
+   display: ${props => props.show ? 'flex' : 'none'};
    :first-of-type {
      margin-top: 30px;
    }
@@ -33,8 +34,8 @@ const StyledHeader = styled.header`
    margin-top: 1px;
  }
 `
-const Header = ({ siteTitle }) => (
-  <StyledHeader>
+const Header = ({ show, onMouseOver, onMouseOut }) => (
+  <StyledHeader show={show} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
     <H1> <Link to="/">h</Link></H1>
     <H1> <Link to="/blog">b</Link></H1>
   </StyledHeader>

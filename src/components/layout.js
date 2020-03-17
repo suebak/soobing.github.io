@@ -5,13 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useRef } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
 
 import Mover from "../components/mover"
-import Header from "./header"
 import "./layout.css"
 import styled from "@emotion/styled"
 
@@ -22,7 +21,20 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `
+const NavSlide = styled.div`
+  width: 30px;
+  height: 100vh;
+  background: red;
+  position: absolute;
+  right: 0;
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+  }
+`
 const Title = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,7 +44,7 @@ const Title = styled.div`
   height: 100vh;
   font-family: 'Permanent Marker', cursive;
   & > div {
-    :nth-of-type(1) {
+    :nth-of-type(2) {
       font-family: 'Rock Salt', cursive;
     }
   }
@@ -48,25 +60,80 @@ const Contents = styled.div({
   fontFamily: `Noto Sans KR', 'sans-serif`
 })
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const NavH1 = styled.h1`
+  margin: 0;
+  height: 35px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  & > a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Life Savers', cursive;
 
+  }
+ `
+const Nav = styled.header`
+  background: #ff6439;
+  border-bottom: 1px solid gray;
+  width: 0px;
+  transition: 0.5s;
+  & > ${NavH1} {
+    display: none;
+    :first-of-type {
+      margin-top: 30px;
+    }
+  }
+  & > ${NavH1} + ${NavH1}{
+    margin-top: 1px;
+  }
+`
+const Layout = ({ children }) => {
+  const navRef = useRef(null);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
+
+  const showNav = () => {
+    navRef.current.style.width = '40px';
+    [...navRef.current.children]
+      .map(item => !!item ? item.style.display = 'flex' : '');
+  };
+  const hideNav = () => {
+    navRef.current.style.width = '0px';
+    [...navRef.current.children]
+      .map(item => !!item ? item.style.display = 'none' : '');
+  };
   return (
     <Wrapper>
       <Title>
         <Mover />
-        <div>Soobin Bak</div>
+        <div onClick={() => navigate("/")} >Soobin Bak</div>
         <div>Frontend Developer</div>
+        <NavSlide
+          onClick={showNav}
+          onMouseOver={showNav}
+          onFocus={showNav}
+          onMouseOut={hideNav}
+          onBlur={hideNav} />
       </Title>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Nav ref={navRef}
+        onMouseOver={showNav}
+        onFocus={showNav}
+        onMouseOut={hideNav}
+        onBlur={hideNav} >
+        <NavH1> <Link to="/">h</Link></NavH1>
+        <NavH1> <Link to="/blog">b</Link></NavH1>
+      </Nav>
       <Contents>
         <main>{children}</main>
       </Contents>
