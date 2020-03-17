@@ -18,16 +18,22 @@ const Wrapper = styled.div`
   flex-direction: row;
   @media screen and (max-width: 1068px){
     flex-direction: column;
-    background: blue;
   }
 `
 const Title = styled.div`
-  background: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffeb3b5e;
   width: 300px;
   height: 100vh;
   font-family: 'Permanent Marker', cursive;
-  /* font-family: 'Shadows Into Light', cursive; */
- 
+  & > div {
+    :nth-of-type(1) {
+      font-family: 'Rock Salt', cursive;
+    }
+  }
   @media screen and (max-width: 1068px){
     margin: 0 auto;
     max-height: 90px; /*TODO: 컨텐츠 넣으면 없애기 */
@@ -52,7 +58,11 @@ const Layout = ({ children }) => {
 
   return (
     <Wrapper>
-      <Title>Frontend Developer</Title>
+      <Title>
+
+        <div>Soobin Bak</div>
+        <div>Frontend Developer</div>
+      </Title>
       <Contents>
         <Header siteTitle={data.site.siteMetadata.title} />
         나는 한국인이다

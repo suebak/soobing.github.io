@@ -12,7 +12,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Shadows Into Light', 'Permanent Marker', 'Noto Sans KR']
+          families: ['Shadows Into Light', 'Permanent Marker', 'Rock Salt', 'Noto Sans KR']
         }
       }
     },
