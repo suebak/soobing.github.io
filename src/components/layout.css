@@ -4,7 +4,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
+  /* background: rgb(249, 249, 249); */
+  background: rgb(234, 233, 233);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
