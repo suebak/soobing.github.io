@@ -19,6 +19,7 @@ import styled from "@emotion/styled"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: 'Noto Sans KR', sans-serif;
 @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     flex-direction: column;
   }

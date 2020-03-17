@@ -1,6 +1,7 @@
 ---
 path: "/blog/deploy-p5js-gatsby"
 date: 2020-03-18T00:12:33.962Z
+categories: p5.js react gatsby deploy
 title: "p5.js를 react에서 사용하고 gatsby에 배포해보기"
 ---
 ## 사용할 라이브러리
