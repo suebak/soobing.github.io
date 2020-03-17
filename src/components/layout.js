@@ -7,7 +7,7 @@
 
 import React, { useRef, useEffect } from "react"
 import PropTypes from "prop-types"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
 
 import Mover from "../components/mover"
@@ -23,14 +23,16 @@ const Wrapper = styled.div`
 `
 const NavSlide = styled.div`
   width: 3px;
-  height: 100vh;
+  height: 120px;
   position: absolute;
+  top: 30px;
   right: 0;
   background: #ff6439;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     height: 3px;
-    width: 100%;
-    bottom: 0;
+    width: 120px;
+    top: 250px;
+    right: 30px;
   }
 `
 const Title = styled.div`
@@ -65,11 +67,10 @@ const Contents = styled.div`
 
 const NavH1 = styled.h1`
   margin: 0;
-  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  background: #ff6439;
   & > a {
     font-size: 24px;
     color: white;
@@ -79,35 +80,34 @@ const NavH1 = styled.h1`
   }
  `
 const Nav = styled.header`
-  background: #ff6439;
+  margin-top: 30px;
+  /* background: #ff6439; */
   width: 0px;
-  height: 100vh;
+  height: 120px;
   transition: 0.5s;
   & > ${NavH1} {
     display: none;
-    :first-of-type {
-      margin-top: 30px;
-    }
+    height: 55px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   & > ${NavH1} + ${NavH1}{
-    margin-top: 1px;
+    margin-top: 10px;
   }
 
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     display: flex;
     flex-direction: row;
-    margin-right: auto;
+    margin: 0px 30px 0px auto;
     height: 30px;
-    width: 100vw;
+    width: 120px;
     & > ${NavH1} {
       display: flex;
       margin-left: auto;
-      :first-of-type {
-        margin-top: 0px;
-      }
-      :last-of-type {
-        margin-right: 30px;
-      }
+      width: 55px;
+      border-radius: 0px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
 
       height: 30px;
       
@@ -126,11 +126,11 @@ const Layout = ({ children }) => {
   const navSliderRef = useRef(null);
   const onResize = () => {
     if (navSliderRef.current.offsetWidth > navSliderRef.current.offsetHeight) {
-      navRef.current.style.width = '100vw';
+      navRef.current.style.width = '120px';
       navRef.current.style.height = '0px';
     } else {
       navRef.current.style.width = '0px';
-      navRef.current.style.height = '100vh';
+      navRef.current.style.height = '120px';
     }
     [...navRef.current.children]
       .map(item => !!item ? item.style.display = 'none' : '');
@@ -155,9 +155,9 @@ const Layout = ({ children }) => {
   const showNav = () => {
     if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
       navRef.current.style.width = '40px';
-      navRef.current.style.height = '100vh';
+      navRef.current.style.height = '120px';
     } else {
-      navRef.current.style.width = '100vw';
+      navRef.current.style.width = '120px';
       navRef.current.style.height = '30px';
     }
 
@@ -167,9 +167,9 @@ const Layout = ({ children }) => {
   const hideNav = () => {
     if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
       navRef.current.style.width = '0px';
-      navRef.current.style.height = '100vh';
+      navRef.current.style.height = '120px';
     } else {
-      navRef.current.style.width = '100vw';
+      navRef.current.style.width = '120px';
       navRef.current.style.height = '0px';
     }
 
@@ -180,7 +180,7 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Title>
         <Mover />
-        <div onClick={() => navigate("/")} >Soobin Bak</div>
+        <div>Soobin Bak</div>
         <div>Frontend Developer</div>
         <NavSlide
           ref={navSliderRef}
@@ -189,6 +189,7 @@ const Layout = ({ children }) => {
           onFocus={showNav}
           onMouseOut={hideNav}
           onBlur={hideNav} />
+
       </Title>
       <Nav ref={navRef}
         onMouseOver={showNav}
