@@ -67,11 +67,12 @@ const Title = styled.div`
   }
 `
 const Contents = styled.div`
+  display: flex;
   width: ${CONTENTS_WIDTH_BOUND};
   margin: 0 auto;
   font-family: 'Noto Sans KR', sans-serif;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
-    width: auto;
+    width: calc(100% - 60px);
   }
 `
 
@@ -129,6 +130,15 @@ const Nav = styled.header`
       margin-top: 0px;
       margin-left: 18px;
     }
+  }
+`
+
+const Main = styled.main`
+  /* background: red; */
+  margin: auto;
+  width: 100%;
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    margin-top: 50px;
   }
 `
 const Layout = ({ children }) => {
@@ -209,7 +219,7 @@ const Layout = ({ children }) => {
         <NavH1> <Link to="/blog">b</Link></NavH1>
       </Nav>
       <Contents>
-        <main>{children}</main>
+        <Main>{children}</Main>
       </Contents>
     </Wrapper>
   )
