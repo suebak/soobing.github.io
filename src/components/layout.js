@@ -6,6 +6,8 @@
  */
 
 import React, { useRef, useEffect } from "react"
+import P5Wrapper from 'react-p5-wrapper';
+
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
@@ -179,7 +181,7 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Title>
-        <Mover />
+        <P5Wrapper sketch={Mover} />
         <div>Soobin Bak</div>
         <div>Frontend Developer</div>
         <NavSlide
