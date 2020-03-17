@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, navigate } from "gatsby"
 import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
@@ -24,9 +24,9 @@ const Wrapper = styled.div`
 const NavSlide = styled.div`
   width: 30px;
   height: 100vh;
-  background: red;
   position: absolute;
   right: 0;
+  background: red;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     height: 30px;
     width: 100%;
@@ -81,6 +81,7 @@ const NavH1 = styled.h1`
 const Nav = styled.header`
   background: #ff6439;
   width: 0px;
+  height: 100vh;
   transition: 0.5s;
   & > ${NavH1} {
     display: none;
@@ -97,7 +98,7 @@ const Nav = styled.header`
     flex-direction: row;
     margin-right: auto;
     height: 30px;
-    width: 40px;
+    width: 100vw;
     & > ${NavH1} {
       display: flex;
       margin-left: auto;
@@ -123,7 +124,23 @@ const Nav = styled.header`
 const Layout = ({ children }) => {
   const navRef = useRef(null);
   const navSliderRef = useRef(null);
-
+  const onResize = () => {
+    if (navSliderRef.current.offsetWidth > navSliderRef.current.offsetHeight) {
+      navRef.current.style.width = '100vw';
+      navRef.current.style.height = '0px';
+    } else {
+      navRef.current.style.width = '0px';
+      navRef.current.style.height = '100vh';
+    }
+    [...navRef.current.children]
+      .map(item => !!item ? item.style.display = 'none' : '');
+  }
+  useEffect(() => {
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    }
+  })
 
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
@@ -136,12 +153,26 @@ const Layout = ({ children }) => {
   // `)
 
   const showNav = () => {
-    navRef.current.style.width = '40px';
+    if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
+      navRef.current.style.width = '40px';
+      navRef.current.style.height = '100vh';
+    } else {
+      navRef.current.style.width = '100vw';
+      navRef.current.style.height = '30px';
+    }
+
     [...navRef.current.children]
       .map(item => !!item ? item.style.display = 'flex' : '');
   };
   const hideNav = () => {
-    navRef.current.style.width = '0px';
+    if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
+      navRef.current.style.width = '0px';
+      navRef.current.style.height = '100vh';
+    } else {
+      navRef.current.style.width = '100vw';
+      navRef.current.style.height = '0px';
+    }
+
     [...navRef.current.children]
       .map(item => !!item ? item.style.display = 'none' : '');
   };
