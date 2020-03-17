@@ -25,6 +25,9 @@ const Title = styled.div`
   background: pink;
   width: 300px;
   height: 100vh;
+  font-family: 'Permanent Marker', cursive;
+  /* font-family: 'Shadows Into Light', cursive; */
+ 
   @media screen and (max-width: 1068px){
     margin: 0 auto;
     max-height: 90px; /*TODO: 컨텐츠 넣으면 없애기 */
@@ -34,6 +37,7 @@ const Contents = styled.div`
   width: 768px;
   margin: 0 auto;
   background: yellowgreen;
+  font-family: 'Noto Sans KR', sans-serif;
 `
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -48,9 +52,10 @@ const Layout = ({ children }) => {
 
   return (
     <Wrapper>
-      <Title></Title>
+      <Title>Frontend Developer</Title>
       <Contents>
         <Header siteTitle={data.site.siteMetadata.title} />
+        나는 한국인이다
         <main>{children}</main>
       </Contents>
     </Wrapper>
