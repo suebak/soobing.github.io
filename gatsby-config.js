@@ -5,8 +5,17 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Shadows Into Light', 'Permanent Marker', 'Rock Salt', 'Noto Sans KR']
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
