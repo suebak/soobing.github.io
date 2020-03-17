@@ -145,7 +145,7 @@ const Layout = ({ children }) => {
         window.removeEventListener('resize', onResize);
       }
     }
-  })
+  }, [])
 
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
