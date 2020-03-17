@@ -12,7 +12,8 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Shadows Into Light', 'Permanent Marker', 'Rock Salt', 'Satisfy', 'Noto Sans KR']
+          families: ['Shadows Into Light', 'Permanent Marker', 'Rock Salt', 'Noto Sans KR',
+            'Satisfy', 'Kaushan Script', 'Great Vibes', 'Gloria Hallelujah', 'Handlee', 'Faster One', 'Life Savers']
         }
       }
     },

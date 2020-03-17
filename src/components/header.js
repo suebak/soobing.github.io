@@ -6,17 +6,18 @@ import styled from "@emotion/styled"
 
 const H1 = styled.h1`
   margin: 0;
-  height: 50px;
+  height: 35px;
   /* background: red; */
   display: flex;
   align-items: center;
   justify-content: center;
   
   & > a {
-    font-size: 30px;
+    font-size: 24px;
     color: white;
     text-decoration: none;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Life Savers', cursive;
+
   }
  `
 const StyledHeader = styled.header`
@@ -29,7 +30,7 @@ const StyledHeader = styled.header`
    }
  }
  & > ${H1} + ${H1}{
-   margin-top: 3px;
+   margin-top: 1px;
  }
 `
 const Header = ({ siteTitle }) => (

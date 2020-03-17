@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
 
 import Mover from "../components/mover"
 import Header from "./header"
@@ -17,7 +18,7 @@ import styled from "@emotion/styled"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  @media screen and (max-width: 1068px){
+@media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     flex-direction: column;
   }
 `
@@ -35,18 +36,18 @@ const Title = styled.div`
       font-family: 'Rock Salt', cursive;
     }
   }
-  @media screen and (max-width: 1068px){
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     margin: 0 auto;
     height: 250px;
     width: 100%;
   }
 `
-const Contents = styled.div`
-  width: 768px;
-  margin: 0 auto;
-  /* background: yellowgreen; */
-  font-family: 'Noto Sans KR', sans-serif;
-`
+const Contents = styled.div({
+  width: CONTENTS_WIDTH_BOUND,
+  margin: '0 auto',
+  fontFamily: `Noto Sans KR', 'sans-serif`
+})
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
