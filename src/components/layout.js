@@ -135,12 +135,12 @@ const Layout = ({ children }) => {
     [...navRef.current.children]
       .map(item => !!item ? item.style.display = 'none' : '');
   }
-  useEffect(() => {
-    typeof window !== 'undefined' && window.addEventListener('resize', onResize);
-    return () => {
-      typeof window !== 'undefined' && window.removeEventListener('resize', onResize);
-    }
-  }, [])
+  // useEffect(() => {
+  //   typeof window !== 'undefined' && window.addEventListener('resize', onResize);
+  //   return () => {
+  //     typeof window !== 'undefined' && window.removeEventListener('resize', onResize);
+  //   }
+  // }, [])
 
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
