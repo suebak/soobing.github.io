@@ -54,16 +54,18 @@ const Title = styled.div`
     width: 100%;
   }
 `
-const Contents = styled.div({
-  width: CONTENTS_WIDTH_BOUND,
-  margin: '0 auto',
-  fontFamily: `Noto Sans KR', 'sans-serif`
-})
+const Contents = styled.div`
+  width: ${CONTENTS_WIDTH_BOUND};
+  margin: 0 auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    width: auto;
+  }
+`
 
 const NavH1 = styled.h1`
   margin: 0;
   height: 35px;
-  background: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +80,6 @@ const NavH1 = styled.h1`
  `
 const Nav = styled.header`
   background: #ff6439;
-  border-bottom: 1px solid gray;
   width: 0px;
   transition: 0.5s;
   & > ${NavH1} {
@@ -90,9 +91,40 @@ const Nav = styled.header`
   & > ${NavH1} + ${NavH1}{
     margin-top: 1px;
   }
+
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    height: 30px;
+    width: 40px;
+    & > ${NavH1} {
+      display: flex;
+      margin-left: auto;
+      :first-of-type {
+        margin-top: 0px;
+      }
+      :last-of-type {
+        margin-right: 30px;
+      }
+
+      height: 30px;
+      
+      & > a {
+        font-size: 16px;
+      }
+    }
+    & > ${NavH1} + ${NavH1}{
+      margin-top: 0px;
+      margin-left: 18px;
+    }
+  }
 `
 const Layout = ({ children }) => {
   const navRef = useRef(null);
+  const navSliderRef = useRef(null);
+
+
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -120,6 +152,7 @@ const Layout = ({ children }) => {
         <div onClick={() => navigate("/")} >Soobin Bak</div>
         <div>Frontend Developer</div>
         <NavSlide
+          ref={navSliderRef}
           onClick={showNav}
           onMouseOver={showNav}
           onFocus={showNav}
@@ -130,7 +163,7 @@ const Layout = ({ children }) => {
         onMouseOver={showNav}
         onFocus={showNav}
         onMouseOut={hideNav}
-        onBlur={hideNav} >
+        onBlur={hideNav}>
         <NavH1> <Link to="/">h</Link></NavH1>
         <NavH1> <Link to="/blog">b</Link></NavH1>
       </Nav>
