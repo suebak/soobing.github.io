@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   font-family: 'Noto Sans KR', sans-serif;
-@media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     flex-direction: column;
   }
 `
@@ -65,7 +65,7 @@ const Contents = styled.div`
   }
 `
 
-const NavH1 = styled.h1`
+const NavItem = styled.div`
   margin: 0;
   display: flex;
   align-items: center;
@@ -73,6 +73,7 @@ const NavH1 = styled.h1`
   background: #fd8b66;
   & > a {
     font-size: 14px;
+    font-weight: bold;
     color: white;
     text-decoration: none;
     font-family: 'Life Savers', cursive;
@@ -81,12 +82,12 @@ const NavH1 = styled.h1`
 const Nav = styled.header`
   margin-top: 30px;
   width: 48px;
-  & > ${NavH1} {
+  & > ${NavItem} {
     height: 30px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
-  & > ${NavH1} + ${NavH1}{
+  & > ${NavItem} + ${NavItem}{
     margin-top: 5px;
   }
 
@@ -96,7 +97,7 @@ const Nav = styled.header`
     margin: 0px 30px 0px auto;
     height: 30px;
     width: 120px;
-    & > ${NavH1} {
+    & > ${NavItem} {
       display: flex;
       margin-left: auto;
       width: 48px;
@@ -109,7 +110,7 @@ const Nav = styled.header`
         font-size: 14px;
       }
     }
-    & > ${NavH1} + ${NavH1}{
+    & > ${NavItem} + ${NavItem}{
       margin-top: 0px;
       margin-left: 5px;
     }
@@ -148,8 +149,8 @@ const Layout = ({ children }) => {
         {/* <NavSlide /> */}
       </Title>
       <Nav >
-        <NavH1> <Link to="/">home</Link></NavH1>
-        <NavH1> <Link to="/blog">blog</Link></NavH1>
+        <NavItem> <Link to="/">home</Link></NavItem>
+        <NavItem> <Link to="/blog">blog</Link></NavItem>
       </Nav>
       <Contents>
         <Main>{children}</Main>

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   }
 `
 const H1 = styled.h1`
-  font-size: 1.8vw;
+  font-size: 20px;
   & > a {
     text-decoration: none;
     color: black;
@@ -30,7 +30,7 @@ const InfoDiv = styled.div`
 const Keyword = styled.h3`
   background: #e3e3e3;
   border-radius: 2px;
-  font-size: 1.2vw;
+  font-size: 13px;
   font-weight: normal;
   padding: 3px 9px;
   margin: 0px;
@@ -49,13 +49,13 @@ const KeywordsDiv = styled.div`
   }
 `
 const H2 = styled.h2`
-  font-size: 1.2vw;
+  font-size: 13px;
   font-weight: normal;
   font-family: 'Raleway', sans-serif;
   margin: 0;
 `
 const P = styled.p`
-  font-size: 1.1vw;
+  font-size: 12px;
   line-height: 1.5;
 `
 
