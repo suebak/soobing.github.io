@@ -75,7 +75,7 @@ const Contents = styled.div`
   margin: 0 auto;
   font-family: 'Noto Sans KR', sans-serif;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
-    width: calc(100% - 60px);
+    width: calc(100% - 30px);
   }
 `
 
@@ -140,8 +140,12 @@ const Main = styled.main`
   /* background: red; */
   margin: auto;
   width: 100%;
+  padding: 60px 40px;
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
-    margin-top: 50px;
+    padding: 40px 20px;
+  }
+  @media screen and (max-width: ${CONTENTS_WIDTH_BOUND}){
+    padding: 40px 10px;
   }
 `
 const Layout = ({ children }) => {

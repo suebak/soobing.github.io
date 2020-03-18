@@ -18,7 +18,7 @@ title: "p5.js를 react에서 사용하고 gatsby에 배포해보기"
  {typeof window !== 'undefined' && <P5Wrapper sketch={Mover} />}
 ```
 
-![forkyImageTest](../../../images/forky.png){ width=50% }
+![forkyImageTest](../../../images/forky.png)
 <img src="../../../images/forky.png" alt="forkyImageTest" width="200"/>
 
 <center><img src="../../../images/forky.png" width="10" height="10" alt='forkyImageTest'></center>
