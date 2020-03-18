@@ -50,7 +50,8 @@ const Title = styled.div`
   align-items: center;
   background: #ffeb3b5e;
   width: 300px;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 
   & > ${TextH2} {
     :nth-of-type(1) {
@@ -64,6 +65,7 @@ const Title = styled.div`
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     margin: 0 auto;
     height: 250px;
+    min-height: 250px;
     width: 100%;
   }
 `
