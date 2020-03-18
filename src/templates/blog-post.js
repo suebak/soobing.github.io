@@ -8,7 +8,9 @@ export default function Template({ data }) {
   const { markdownRemark: post } = data
   return (
     <Layout className="blog-post-container">
-      <Helmet title={`${post.frontmatter.title} :: Soobing's Story`} />
+      <Helmet>
+        <title>{post.frontmatter.title} :: Soobing's Story</title>
+      </Helmet>
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
         <div
