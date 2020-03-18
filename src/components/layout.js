@@ -24,20 +24,6 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `
-const NavSlide = styled.div`
-  width: 3px;
-  height: 120px;
-  position: absolute;
-  top: 30px;
-  right: 0;
-  background: #ff6439;
-  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
-    height: 3px;
-    width: 120px;
-    top: 250px;
-    right: 30px;
-  }
-`
 const TextH2 = styled.h2`
   font-size: 16px;
   margin: 0;
@@ -84,29 +70,24 @@ const NavH1 = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ff6439;
+  background: #fd8b66;
   & > a {
-    font-size: 24px;
+    font-size: 14px;
     color: white;
     text-decoration: none;
     font-family: 'Life Savers', cursive;
-
   }
  `
 const Nav = styled.header`
   margin-top: 30px;
-  /* background: #ff6439; */
-  width: 0px;
-  height: 120px;
-  transition: 0.5s;
+  width: 48px;
   & > ${NavH1} {
-    display: none;
-    height: 55px;
+    height: 30px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
   & > ${NavH1} + ${NavH1}{
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
@@ -118,20 +99,19 @@ const Nav = styled.header`
     & > ${NavH1} {
       display: flex;
       margin-left: auto;
-      width: 55px;
+      width: 48px;
       border-radius: 0px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
-
       height: 30px;
       
       & > a {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
     & > ${NavH1} + ${NavH1}{
       margin-top: 0px;
-      margin-left: 18px;
+      margin-left: 5px;
     }
   }
 `
@@ -149,26 +129,6 @@ const Main = styled.main`
   }
 `
 const Layout = ({ children }) => {
-  const navRef = useRef(null);
-  const navSliderRef = useRef(null);
-  const onResize = () => {
-    if (navSliderRef.current.offsetWidth > navSliderRef.current.offsetHeight) {
-      navRef.current.style.width = '120px';
-      navRef.current.style.height = '0px';
-    } else {
-      navRef.current.style.width = '0px';
-      navRef.current.style.height = '120px';
-    }
-    [...navRef.current.children]
-      .map(item => !!item ? item.style.display = 'none' : '');
-  }
-  useEffect(() => {
-    typeof window !== 'undefined' && window.addEventListener('resize', onResize);
-    return () => {
-      typeof window !== 'undefined' && window.removeEventListener('resize', onResize);
-    }
-  }, [])
-
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -179,51 +139,17 @@ const Layout = ({ children }) => {
   //   }
   // `)
 
-  const showNav = () => {
-    if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
-      navRef.current.style.width = '40px';
-      navRef.current.style.height = '120px';
-    } else {
-      navRef.current.style.width = '120px';
-      navRef.current.style.height = '30px';
-    }
-
-    [...navRef.current.children]
-      .map(item => !!item ? item.style.display = 'flex' : '');
-  };
-  const hideNav = () => {
-    if (navSliderRef.current.offsetWidth < navSliderRef.current.offsetHeight) {
-      navRef.current.style.width = '0px';
-      navRef.current.style.height = '120px';
-    } else {
-      navRef.current.style.width = '120px';
-      navRef.current.style.height = '0px';
-    }
-
-    [...navRef.current.children]
-      .map(item => !!item ? item.style.display = 'none' : '');
-  };
   return (
     <Wrapper>
       <Title>
         {typeof window !== 'undefined' && <P5Wrapper sketch={Mover} />}
         <TextH2 style={{ fontFamily: `'Rock Salt', cursive` }}>Soobin Bak</TextH2>
         <TextH2>Frontend Developer</TextH2>
-        <NavSlide
-          ref={navSliderRef}
-          onClick={showNav}
-          onMouseOver={showNav}
-          onFocus={showNav}
-          onMouseOut={hideNav}
-          onBlur={hideNav} />
+        {/* <NavSlide /> */}
       </Title>
-      <Nav ref={navRef}
-        onMouseOver={showNav}
-        onFocus={showNav}
-        onMouseOut={hideNav}
-        onBlur={hideNav}>
-        <NavH1> <Link to="/">h</Link></NavH1>
-        <NavH1> <Link to="/blog">b</Link></NavH1>
+      <Nav >
+        <NavH1> <Link to="/">home</Link></NavH1>
+        <NavH1> <Link to="/blog">blog</Link></NavH1>
       </Nav>
       <Contents>
         <Main>{children}</Main>
