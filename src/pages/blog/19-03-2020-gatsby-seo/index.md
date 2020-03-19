@@ -41,7 +41,7 @@ description: gatsby로 블로그는 개설은 했는데 검색엔진에 과연 �
 
 ## step2. 문제점 해결
 1. Robots.txt 추가 ([gatsby-plugin-robots-txt](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/) 사용해서 추가 함)
-
+2. description (meta tag) 추가
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
