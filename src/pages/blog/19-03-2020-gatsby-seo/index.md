@@ -1,5 +1,5 @@
 ---
-path: "/blog/deploy-p5js-gatsby"
+path: "/blog/gatsby-seo"
 date: "2020-03-19"
 categories: gatsby seo metatag description
 title: "gatsby로 개설한 블로그, SEO는 잘되고 있는가?"
