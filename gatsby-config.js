@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `soobing`,
-    description: `Respect Diversity 즐겁게 살자!`,
+    description: `Respect Diversity | 즐겁게 살자!`,
     siteUrl: `https://soobing.github.io`,
     author: `Sue Soobin Bak`,
+    keywords: `박수빈 soobing Soobin Bak frontend development travel`
   },
   plugins: [
     {
