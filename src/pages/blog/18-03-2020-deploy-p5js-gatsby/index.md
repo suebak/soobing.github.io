@@ -1,9 +1,9 @@
 ---
 path: "/blog/deploy-p5js-gatsby"
-date: 2020-03-18T00:12:33.962Z
+date: "2020-03-18"
 categories: p5.js react gatsby deploy
 title: "p5.js를 react에서 사용하고 gatsby에 배포해보기"
-description: test test
+description: react-p5-wrapper 혹은 react-p5 라이브러리를 사용하여 p5.js를 react에서 사용해보고 gatsby에서 배포해 보도록 하자!
 ---
 ## 사용할 라이브러리
 - p5.js를 react에서 사용할 수 있는 라이브러리가 있다. 두가지 정도
