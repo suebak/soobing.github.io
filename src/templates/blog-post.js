@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 // import '../css/blog-post.css';
 
 import styled from "@emotion/styled"
@@ -39,9 +40,7 @@ export default function Template({ data }) {
   const { markdownRemark: post } = data
   return (
     <Layout className="blog-post-container">
-      <Helmet>
-        <title>{post.frontmatter.title} :: Soobing's Story</title>
-      </Helmet>
+      <SEO title={post.frontmatter.title + ` :: Soobing's Story`} />
       <Wrapper>
         <H1>{post.frontmatter.title}</H1>
         <div

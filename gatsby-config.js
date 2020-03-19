@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `soobing`,
-    description: `EAT | TRAVEL | CODING | 먹고 여행하고 코딩하자 @_@`,
-    author: `@soobing`,
+    description: `Respect Diversity 즐겁게 살자!`,
+    siteUrl: `https://soobing.github.io`,
+    author: `Sue Soobin Bak`,
   },
   plugins: [
     `gatsby-plugin-emotion`,

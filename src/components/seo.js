@@ -24,7 +24,12 @@ function SEO({ description, lang, meta, title }) {
       }
     `
   )
-
+  console.log('SEO!!!')
+  console.log('site', site)
+  console.log('description', description)
+  console.log('lang', lang)
+  console.log('meta', meta)
+  console.log('title', title)
   const metaDescription = description || site.siteMetadata.description
 
   return (
