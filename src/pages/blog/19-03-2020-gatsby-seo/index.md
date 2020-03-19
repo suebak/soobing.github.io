@@ -16,7 +16,7 @@ description: gatsby로 블로그는 개설은 했는데 검색엔진에 과연 �
 그래서 내 웹사이트를 넣었더니 44점이 나왔다;;
 ![woorank result](./woorank-result.gif)
 
-현재 블로그인 naver블로그의 점수를 봐보니 64점. 생각보다 점수가 높지 않았다. (medium 같은 사이트를 보면 82점 정도로 굉장히 높다.) 어쩐지 네이버 블로그가 노출이 많이 안되는 느낌적인 느낌이 맞았다.
+기존에 주로 사용하던 naver 블로그의 점수를 봐보니 64점. 생각보다 점수가 높지 않았다. (medium 같은 사이트를 보면 82점 정도로 굉장히 높다.) 어쩐지 네이버 블로그가 노출이 많이 안되는 느낌적인 느낌이 맞았다.
 
 
 # SEO 지수를 높여보자! 어떻게? 
@@ -38,3 +38,12 @@ description: gatsby로 블로그는 개설은 했는데 검색엔진에 과연 �
   + Social profile 연결 (연결 할지 안할지 생각해볼꺼지롱👅)
 
 자 이제 하나씩 해결해보자!
+
+## step2. 문제점 해결
+1. Robots.txt 추가 ([gatsby-plugin-robots-txt](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/) 사용해서 추가 함)
+
+## 참고하면 좋은 사이트들
+* [Putting SEO First with Gatsby
+](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
+* [Search Engine Optimization (SEO) and Social Sharing Cards with Gatsby
+](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/)

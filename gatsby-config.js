@@ -6,6 +6,12 @@ module.exports = {
     author: `Sue Soobin Bak`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js'
+      }
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
