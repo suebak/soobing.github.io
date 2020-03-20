@@ -26,8 +26,8 @@ featured: ./woorank.png
 * 상
   + Robots.txt가 없다
   + description (meta tag)가 없음
-  + Schema.org item이 없다. (🤔이게 뭐임?)
   + OpenGraph protocol 중 'og:image'가 없음 (그래서 링크를 공유하면 이미지가 안떴었음)
+  + Schema.org item이 없다. (🤔이게 뭐임?)
   + sitemap.xml이 없음. (아래 문제 해결 2번까지 하다보니까 나온 이슈)
 * 중
   + analytics tool이 없음 (google analytics 달꺼얌)
@@ -50,6 +50,15 @@ featured: ./woorank.png
   ![50점](./woorank-50.png)
   + 그리고 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 이것은 다섯번째에서 해결해 주도록 하겠다.
   [sitemap-warning](./woorank-sitemap.png)
+3. 'og:image' 추가
+  +
+4. schema 추가 👉🏻포기포기❌ (이부분은 어떻게 develop 할 수 있는지 찾지 못해 포기합니다~ update가 있으면 추가하도록 하겠습니다.)
+  + Gatsby는 graphQL 스키마를 어차피 사용하기 때문에 데이터에서 GraphQL 스키마를 자동으로 유추할 수 있음. 이것과 관련된 가이드는 [Schema Customization](https://www.gatsbyjs.org/docs/schema-customization)를 참고하면 된다.
+  + 그러나 사용자가 데이터 형태를 명시 적으로 정의하거나 사용자 정의 기능을 쿼리 계층에 추가하려는 경우 [Schema Customization API](https://www.gatsbyjs.org/blog/2019-03-04-new-schema-customization/) 를 이용하면된다. 아직 테스트 단계인것 같다.
+  
+  + package.json에서 develop 스크립트를 `"develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop"` 이렇게 실행하도록 바꾸면 schema를 어떻게 자동으로 얻어오는지 볼 수 있다.
+  ![gatsby playground schema](./graphql-playground.png)
+  + ~~와우 그래프큐엘 한개도 모르겠다...~~ 😖
 5. sitemap 추가
   + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
   + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
