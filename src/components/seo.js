@@ -33,7 +33,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   console.log('meta', meta)
   console.log('title', title)
   const metaDescription = description || site.siteMetadata.description;
-  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : null;
+  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : "./images/forky.png";
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
   const url = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : site.siteMetadata.siteUrl;
   console.log('metaDescription', metaDescription)
