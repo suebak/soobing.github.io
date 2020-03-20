@@ -1,3 +1,11 @@
+---
+path: "/blog/gatsby-markdownRemark-error"
+date: "2020-03-19"
+categories: gatsby seo fields markdownRemark Query
+title: Unknown argument "fields" on field "markdownRemark" of type "Query"
+description: Unknown argument "fields" on field "markdownRemark" of type "Query"
+---
+
 Unknown argument "fields" on field "markdownRemark" of type "Query".
 와 같은 에러 발생
 dev server 띄우면
