@@ -33,7 +33,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   console.log('meta', meta)
   console.log('title', title)
   const metaDescription = description || site.siteMetadata.description;
-  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : `./images/forky.png`;
+  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : null;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
   const url = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : site.siteMetadata.siteUrl;
   console.log('metaDescription', metaDescription)
@@ -83,10 +83,6 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           content: url
         },
         {
-          property: "og:image",
-          content: image,
-        },
-        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -107,6 +103,10 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           metaImage
             ? [
               {
+                property: "og:image",
+                content: image,
+              },
+              {
                 property: "og:image:width",
                 content: metaImage.width,
               },
@@ -120,6 +120,10 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
               },
             ]
             : [
+              {
+                property: "og:image",
+                content: "./images/forky.png",
+              },
               {
                 name: "twitter:card",
                 content: "summary",
