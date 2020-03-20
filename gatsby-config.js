@@ -13,6 +13,12 @@ module.exports = {
         configFile: 'robots-txt.config.js'
       }
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        sitemapSize: 5000
+      }
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
