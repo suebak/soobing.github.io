@@ -48,7 +48,11 @@ featured: ./woorank.png
   + tutorial에서 수정할 내용들도 보여서 [PR](https://github.com/gatsbyjs/gatsby/pull/22426) 도 올렸다. 지금 gatsby master브랜치에서 link 에러가 발생해서 내꺼까지 영향을 미쳤다 🙄
   + 1, 2번 까지 적용하고 배포하니까 50점 까지 높아졌다 ㅋㅋ 오 신기~
   ![50점](./woorank-50.png)
-  + 여기까지 적용하고 나니까 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 그래서 찾아보니 gatsby에서 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다. 이것은 다섯번째에서 해결해 주도록 하겠다.
+  + 그리고 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 이것은 다섯번째에서 해결해 주도록 하겠다.
+  [sitemap-warning](./woorank-sitemap.png)
+5. sitemap 추가
+  + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
+  + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
