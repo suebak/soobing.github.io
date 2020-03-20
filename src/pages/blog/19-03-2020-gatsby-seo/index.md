@@ -4,6 +4,7 @@ date: "2020-03-19"
 categories: gatsby seo metatag description
 title: "gatsby로 개설한 블로그, SEO는 잘되고 있는가?"
 description: gatsby로 블로그는 개설은 했는데 검색엔진에 과연 노출이 잘 되고 있는가? SEO 지수를 확인해보고 더 노출이 잘 될 수 있도록 개선해보자!
+featured: ./woorank.png
 ---
 # SEO 지수 확인
 일단 블로그는 개설했는디... SEO가 잘되고 있는지 구글에  요렇게 👉🏻 `how to check seo ranking` 검색을 해보았다. <br/><br/>
