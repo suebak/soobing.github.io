@@ -35,7 +35,11 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   const metaDescription = description || site.siteMetadata.description;
   const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : `./images/forky.png`;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+  const url = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : site.siteMetadata.siteUrl;
+  console.log('metaDescription', metaDescription)
   console.log('image', image)
+  console.log('site.siteMetadata.siteUrl', site.siteMetadata.siteUrl)
+  console.log('url', url)
   return (
     <Helmet
       htmlAttributes={{
@@ -75,6 +79,14 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           content: `website`,
         },
         {
+          property: "og:url",
+          content: url
+        },
+        {
+          property: "og:image",
+          content: image,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -94,10 +106,6 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
         .concat(
           metaImage
             ? [
-              {
-                property: "og:image",
-                content: image,
-              },
               {
                 property: "og:image:width",
                 content: metaImage.width,
