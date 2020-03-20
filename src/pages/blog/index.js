@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../../components/layout"
 import styled from "@emotion/styled"
-
+import SEO from '../../components/seo';
 // import '../css/index.css'; // add some style if you want!
 const Wrapper = styled.div`
   & > * {
@@ -59,11 +59,14 @@ const P = styled.p`
   line-height: 1.5;
 `
 
-export default function Index({ data }) {
+export default function Index({ data, location }) {
   const { edges: posts } = data.allMarkdownRemark
   console.log(posts)
   return (
     <Layout>
+      <SEO title="Blog List:: Soobing's Story"
+        description="개발(React, Gatsby, Next.js, and so on...)과 여행에 관한 이야기들:: Soobing's Story"
+        pathname={location.pathname} />
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => {
