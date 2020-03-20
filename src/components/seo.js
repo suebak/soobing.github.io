@@ -17,19 +17,11 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
         site {
           siteMetadata {
             title
+            image
             description
             author
             keywords
             siteUrl
-            image: featured {
-              childImageSharp {
-                resize(width: 1200) {
-                  src
-                  height
-                  width
-                }
-              }
-            }
           }
         }
       }
