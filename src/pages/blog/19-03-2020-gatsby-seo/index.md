@@ -28,6 +28,7 @@ featured: ./woorank.png
   + description (meta tag)가 없음
   + Schema.org item이 없다. (🤔이게 뭐임?)
   + OpenGraph protocol 중 'og:image'가 없음 (그래서 링크를 공유하면 이미지가 안떴었음)
+  + sitemap.xml이 없음. (아래 문제 해결 2번까지 하다보니까 나온 이슈)
 * 중
   + analytics tool이 없음 (google analytics 달꺼얌)
   + favicon 반영 안됨 (분명히 🍉수박으로 바꿨는데 개츠비 기본 favicon이 뜸)
@@ -43,6 +44,11 @@ featured: ./woorank.png
 ## step2. 문제점 해결
 1. Robots.txt 추가 ([gatsby-plugin-robots-txt](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/) 사용해서 추가 함)
 2. description (meta tag) 추가
+  + 이거 반영을 위해 해당 [tutorial](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/) 을 참고했다.
+  + tutorial에서 수정할 내용들도 보여서 [PR](https://github.com/gatsbyjs/gatsby/pull/22426) 도 올렸다. 지금 gatsby master브랜치에서 link 에러가 발생해서 내꺼까지 영향을 미쳤다 🙄
+  + 1, 2번 까지 적용하고 배포하니까 50점 까지 높아졌다 ㅋㅋ 오 신기~
+  ![50점](./woorank-50.png)
+  + 여기까지 적용하고 나니까 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 그래서 찾아보니 gatsby에서 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다. 이것은 다섯번째에서 해결해 주도록 하겠다.
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
