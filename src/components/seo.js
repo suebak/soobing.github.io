@@ -122,7 +122,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
             : [
               {
                 property: "og:image",
-                content: "./images/forky.png",
+                content: image,
               },
               {
                 name: "twitter:card",
