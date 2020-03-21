@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "soobing.github.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Soobin's homepage with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Soobin Bak <qls0147@naver.com>",
   "homepage": "https://soobing.github.io",
   "dependencies": {
     "@emotion/core": "^10.0.28",
