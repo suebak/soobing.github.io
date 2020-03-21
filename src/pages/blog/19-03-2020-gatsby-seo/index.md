@@ -51,7 +51,23 @@ featured: ./woorank.png
   + 그리고 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 이것은 다섯번째에서 해결해 주도록 하겠다.
   [sitemap-warning](./woorank-sitemap.png)
 3. 'og:image' 추가
-  +
+  + 이렇게 기본 이미지를 직접 쿼리해줘서 넣어줬다. 경로를 직접 넣어주니까 예를 들면 `/images/forky.png` 이런식.. 빌드된 경로에 해당 이미지를 못찾아서 쿼리해서 직접 넣어줘야했다. 아윽.. 삽질 너무힘들었어 😰
+  ```
+  const { defaultImage } = useStaticQuery(
+    graphql`
+      query {
+      defaultImage: file(relativePath: { eq: "forky.png" }) {
+        childImageSharp {
+          resize(width: 1200) {
+            src
+            height
+            width
+          }
+        }
+      }
+    }`
+  ```
+  + 추가적으로 og:url도 추가해줬다.
 4. schema 추가 👉🏻포기포기❌ (이부분은 어떻게 develop 할 수 있는지 찾지 못해 포기합니다~ update가 있으면 추가하도록 하겠습니다.)
   + Gatsby는 graphQL 스키마를 어차피 사용하기 때문에 데이터에서 GraphQL 스키마를 자동으로 유추할 수 있음. 이것과 관련된 가이드는 [Schema Customization](https://www.gatsbyjs.org/docs/schema-customization)를 참고하면 된다.
   + 그러나 사용자가 데이터 형태를 명시 적으로 정의하거나 사용자 정의 기능을 쿼리 계층에 추가하려는 경우 [Schema Customization API](https://www.gatsbyjs.org/blog/2019-03-04-new-schema-customization/) 를 이용하면된다. 아직 테스트 단계인것 같다.
