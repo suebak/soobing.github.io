@@ -83,6 +83,7 @@ featured: ./woorank.png
 
 6. Analytics 추가
   + [analytics 관련 도구들](https://www.gatsbyjs.org/docs/adding-analytics/)은 이곳에 많이 나와있다. 나는 먼저 google analytics 먼저 연결하도록 한다.
+  + [gatsby-plugin-google-analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/) 설치하고 계정 연결
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
