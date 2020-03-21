@@ -4,7 +4,6 @@ module.exports = {
     description: `여행을 좋아하는 개발자 블로그 :)`,
     siteUrl: `https://soobing.github.io`,
     author: `Sue Soobin Bak`,
-    image: `/images/forky.png`,
     keywords: ['박수빈', 'soobing', 'Soobin Bak', 'frontend', 'development', 'travel'],
   },
   plugins: [
