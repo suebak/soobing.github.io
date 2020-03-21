@@ -75,6 +75,8 @@ featured: ./woorank.png
   + package.json에서 develop 스크립트를 `"develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop"` 이렇게 실행하도록 바꾸면 schema를 어떻게 자동으로 얻어오는지 볼 수 있다.
   ![gatsby playground schema](./graphql-playground.png)
   + ~~와우 그래프큐엘 한개도 모르겠다...~~ 😖
+  + update below at 2020-03-21 
+  + [static folder 아래에 추가](https://www.gatsbyjs.org/docs/add-seo-component/#examples) 하라고 나와있는 문서 발견!
 5. sitemap 추가
   + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
   + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
