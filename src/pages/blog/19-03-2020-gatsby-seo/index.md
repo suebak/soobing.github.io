@@ -80,6 +80,9 @@ featured: ./woorank.png
 5. sitemap 추가
   + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
   + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
+
+6. Analytics 추가
+  + [analytics 관련 도구들](https://www.gatsbyjs.org/docs/adding-analytics/)은 이곳에 많이 나와있다. 나는 먼저 google analytics 먼저 연결하도록 한다.
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
