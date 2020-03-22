@@ -5,14 +5,19 @@ import Layout from "../../components/layout"
 import styled from "@emotion/styled"
 import SEO from '../../components/seo';
 // import '../css/index.css'; // add some style if you want!
+const Post = styled.div``
 const Wrapper = styled.div`
   & > * {
     font-family: 'Noto Sans KR', sans-serif;
-    margin: 0px;
+  }
+  & > ${Post} + ${Post} {
+    margin-top: 60px;
   }
 `
+
 const H1 = styled.h1`
   font-size: 20px;
+  margin-bottom: 10px;
   & > a {
     text-decoration: none;
     color: black;
@@ -23,7 +28,7 @@ const InfoDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 8px;
 `
 
@@ -67,29 +72,31 @@ export default function Index({ data, location }) {
       <SEO title="Blog List:: Soobing's Story"
         description="개발(React, Gatsby, Next.js, and so on...)과 여행에 관한 이야기들:: Soobing's Story"
         pathname={location.pathname} />
-      {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
-        .map(({ node: post }) => {
-          return (
-            <Wrapper key={post.id} >
-              <H1>
-                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-              </H1>
-              <InfoDiv>
-                <KeywordsDiv>
-                  {
-                    post.frontmatter.categories.split(' ').map((keyword, index) => <Keyword key={index}>{keyword}</Keyword>)
-                  }
-                </KeywordsDiv>
-                <H2>
-                  {post.frontmatter.date}
-                </H2>
-              </InfoDiv>
+      <Wrapper>
+        {posts
+          .filter(post => post.node.frontmatter.title.length > 0)
+          .map(({ node: post }) => {
+            return (
+              <Post key={post.id} >
+                <H1>
+                  <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                </H1>
+                <InfoDiv>
+                  <KeywordsDiv>
+                    {
+                      post.frontmatter.categories.split(' ').map((keyword, index) => <Keyword key={index}>{keyword}</Keyword>)
+                    }
+                  </KeywordsDiv>
+                  <H2>
+                    {post.frontmatter.date}
+                  </H2>
+                </InfoDiv>
 
-              <P>{post.excerpt}</P>
-            </Wrapper>
-          )
-        })}
+                <P>{post.excerpt}</P>
+              </Post>
+            )
+          })}
+      </Wrapper>
     </Layout >
   )
 }
