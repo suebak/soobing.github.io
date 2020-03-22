@@ -14,7 +14,6 @@ const Wrapper = styled.div`
     margin-top: 60px;
   }
 `
-
 const H1 = styled.h1`
   font-size: 20px;
   margin-bottom: 10px;
@@ -23,6 +22,12 @@ const H1 = styled.h1`
     color: black;
   }
 `
+const H2 = styled.h2`
+  font-size: 13px;
+  font-weight: normal;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+`
 const InfoDiv = styled.div`
   display: flex;
   flex-direction: row;
@@ -30,6 +35,9 @@ const InfoDiv = styled.div`
   align-items: center;
   margin-top: 15px;
   margin-bottom: 8px;
+  & > ${H2} {
+    min-width: max-content;
+  }
 `
 
 const Keyword = styled.h3`
@@ -39,6 +47,7 @@ const Keyword = styled.h3`
   font-weight: normal;
   padding: 3px 9px;
   margin: 0px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,16 +58,12 @@ const Keyword = styled.h3`
 const KeywordsDiv = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   & > ${Keyword} + ${Keyword} {
     margin-left: 5px;
   }
 `
-const H2 = styled.h2`
-  font-size: 13px;
-  font-weight: normal;
-  font-family: 'Raleway', sans-serif;
-  margin: 0;
-`
+
 const P = styled.p`
   font-size: 12px;
   line-height: 1.5;
