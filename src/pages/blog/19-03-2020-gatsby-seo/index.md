@@ -7,10 +7,12 @@ description: gatsby로 블로그는 개설은 했는데 검색엔진에 과연 �
 featured: ./woorank.png
 ---
 # SEO 지수 확인
-일단 블로그는 개설했는디... SEO가 잘되고 있는지 구글에  요렇게 👉🏻 `how to check seo ranking` 검색을 해보았다. <br/><br/>
+일단 블로그는 개설했는디... SEO가 잘되고 있는지 구글에  요렇게 👉🏻 `how to check seo ranking` 검색을 해보았다.
 
 여러 광고들이 있었지만 
 [woorank](https://www.woorank.com/) 라는 사이트가 가장 괜찮아 보였다.
+
+
 ![woorank](./woorank.png)
 
 <br/><br/>

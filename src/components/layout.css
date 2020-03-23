@@ -222,6 +222,8 @@ img {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  display: block;
+  margin: auto;
 }
 h1 {
   margin-left: 0;
@@ -231,7 +233,7 @@ h1 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -247,7 +249,7 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -263,7 +265,7 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -279,7 +281,7 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -295,7 +297,7 @@ h5 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -311,7 +313,7 @@ h6 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 14px;
   color: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
@@ -382,7 +384,7 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 12px;
 }
 figure {
   margin-left: 0;
