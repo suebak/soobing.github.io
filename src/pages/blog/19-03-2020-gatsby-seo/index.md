@@ -46,14 +46,14 @@ featured: ./woorank.png
 ## step2. 문제점 해결
 1. Robots.txt 추가 ([gatsby-plugin-robots-txt](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/) 사용해서 추가 함)
 2. description (meta tag) 추가
-  + 이거 반영을 위해 해당 [tutorial](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/) 을 참고했다.
-  + tutorial에서 수정할 내용들도 보여서 [PR](https://github.com/gatsbyjs/gatsby/pull/22426) 도 올렸다. 지금 gatsby master브랜치에서 link 에러가 발생해서 내꺼까지 영향을 미쳤다 🙄
-  + 1, 2번 까지 적용하고 배포하니까 50점 까지 높아졌다 ㅋㅋ 오 신기~
+    + 이거 반영을 위해 해당 [tutorial](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/) 을 참고했다.
+    + tutorial에서 수정할 내용들도 보여서 [PR](https://github.com/gatsbyjs/gatsby/pull/22426) 도 올렸다. 지금 gatsby master브랜치에서 link 에러가 발생해서 내꺼까지 영향을 미쳤다 🙄
+    + 1, 2번 까지 적용하고 배포하니까 50점 까지 높아졌다 ㅋㅋ 오 신기~
   ![50점](./woorank-50.png)
-  + 그리고 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 이것은 다섯번째에서 해결해 주도록 하겠다.
+    + 그리고 추가적으로 `sitemap.xml`이 없다는 안내가 떴다. 기존엔 안떴었는데;; 아마 뭔가에 가려져서 이것까지 판단하지 못했던것 같다. 이것은 다섯번째에서 해결해 주도록 하겠다.
   [sitemap-warning](./woorank-sitemap.png)
 3. 'og:image' 추가
-  + 이렇게 기본 이미지를 직접 쿼리해줘서 넣어줬다. 경로를 직접 넣어주니까 예를 들면 `/images/forky.png` 이런식.. 빌드된 경로에 해당 이미지를 못찾아서 쿼리해서 직접 넣어줘야했다. 아윽.. 삽질 너무힘들었어 😰
+    + 이렇게 기본 이미지를 직접 쿼리해줘서 넣어줬다. 경로를 직접 넣어주니까 예를 들면 `/images/forky.png` 이런식.. 빌드된 경로에 해당 이미지를 못찾아서 쿼리해서 직접 넣어줘야했다. 아윽.. 삽질 너무힘들었어 😰
   ```
   const { defaultImage } = useStaticQuery(
     graphql`
@@ -69,26 +69,26 @@ featured: ./woorank.png
       }
     }`
   ```
-  + 추가적으로 og:url도 추가해줬다.
+    + 추가적으로 og:url도 추가해줬다.
 4. schema 추가 👉🏻포기포기❌ (이부분은 어떻게 develop 할 수 있는지 찾지 못해 포기합니다~ update가 있으면 추가하도록 하겠습니다.)
-  + Gatsby는 graphQL 스키마를 어차피 사용하기 때문에 데이터에서 GraphQL 스키마를 자동으로 유추할 수 있음. 이것과 관련된 가이드는 [Schema Customization](https://www.gatsbyjs.org/docs/schema-customization)를 참고하면 된다.
-  + 그러나 사용자가 데이터 형태를 명시 적으로 정의하거나 사용자 정의 기능을 쿼리 계층에 추가하려는 경우 [Schema Customization API](https://www.gatsbyjs.org/blog/2019-03-04-new-schema-customization/) 를 이용하면된다. 아직 테스트 단계인것 같다.
+    + Gatsby는 graphQL 스키마를 어차피 사용하기 때문에 데이터에서 GraphQL 스키마를 자동으로 유추할 수 있음. 이것과 관련된 가이드는 [Schema Customization](https://www.gatsbyjs.org/docs/schema-customization)를 참고하면 된다.
+    + 그러나 사용자가 데이터 형태를 명시 적으로 정의하거나 사용자 정의 기능을 쿼리 계층에 추가하려는 경우 [Schema Customization API](https://www.gatsbyjs.org/blog/2019-03-04-new-schema-customization/) 를 이용하면된다. 아직 테스트 단계인것 같다.
   
-  + package.json에서 develop 스크립트를 `"develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop"` 이렇게 실행하도록 바꾸면 schema를 어떻게 자동으로 얻어오는지 볼 수 있다.
+    + package.json에서 develop 스크립트를 `"develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop"` 이렇게 실행하도록 바꾸면 schema를 어떻게 자동으로 얻어오는지 볼 수 있다.
   ![gatsby playground schema](./graphql-playground.png)
-  + ~~와우 그래프큐엘 한개도 모르겠다...~~ 😖
-  + update below at 2020-03-21 
-  + [static folder 아래에 추가](https://www.gatsbyjs.org/docs/add-seo-component/#examples) 하라고 나와있는 문서 발견!
+    + ~~와우 그래프큐엘 한개도 모르겠다...~~ 😖
+    + update below at 2020-03-21 
+    + [static folder 아래에 추가](https://www.gatsbyjs.org/docs/add-seo-component/#examples) 하라고 나와있는 문서 발견!
 5. sitemap 추가
-  + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
-  + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
+    + sitemap이란? `detail all URLs on a website`. sitemap은 파일인데 xml 파일 일 수도 있고(보통) 뭐 여러 타입의 파일 일 수 있다. 그럼 이 파일이 어떤 정보를 담고있느냐? 하면 내 웹사이트에 있는 모든 URL에 관한 정보를 담고있다. 그래서 웹 크롤러가 내 사이트 정보를 크롤링할떄 조금 더 편리하게 긁어갈 수 있게한다. 구글 sitemap 관련 정보를 보면 사실 구글봇이 알아서 잘 긁어가지만 그럼에도 불구하고 sitemap이 있으면 더 효과적이라고 한다.
+    + gatsby에서는 제공해주는 플러그인[gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)이 있었다. 역시 플러그인 부자 개츠비ㅋㅋ 최고다최고 찾으면 다나온다.
 
 6. Analytics 추가
-  + [analytics 관련 도구들](https://www.gatsbyjs.org/docs/adding-analytics/)은 이곳에 많이 나와있다. 나는 먼저 google analytics 먼저 연결하도록 한다.
-  + [gatsby-plugin-google-analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/) 설치하고 계정 연결
+    + [analytics 관련 도구들](https://www.gatsbyjs.org/docs/adding-analytics/)은 이곳에 많이 나와있다. 나는 먼저 google analytics 먼저 연결하도록 한다.
+    + [gatsby-plugin-google-analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/) 설치하고 계정 연결
 
 7. Comment [댓글](https://www.gatsbyjs.org/docs/adding-comments/) 기능 추가
-  + gittalk과 [disqus](https://www.gatsbyjs.org/packages/gatsby-plugin-disqus/) 고민중
+    + gittalk과 [disqus](https://www.gatsbyjs.org/packages/gatsby-plugin-disqus/) 고민중
 
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
