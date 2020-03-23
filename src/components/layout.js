@@ -149,7 +149,7 @@ const Layout = ({ children }) => {
         {/* <NavSlide /> */}
       </Title>
       <Nav >
-        <NavItem> <Link to="/">home</Link></NavItem>
+        <NavItem> <Link to="/">about</Link></NavItem>
         <NavItem> <Link to="/blog">blog</Link></NavItem>
       </Nav>
       <Contents>
