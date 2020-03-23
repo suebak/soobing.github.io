@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   }
   & > p {
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 15px;
   }
 `
 const SpanLineThrough = styled.span`

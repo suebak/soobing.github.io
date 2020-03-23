@@ -342,6 +342,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
+  list-style-type: "\1F4CC"; /** custom: 리스트 스타일 조정*/
 }
 ol {
   margin-left: 1.45rem;
@@ -526,6 +527,7 @@ li > ul {
   margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
   margin-top: calc(1.45rem / 2);
+  list-style-type: disc; /** custom: 리스트 스타일 조정*/
 }
 blockquote *:last-child {
   margin-bottom: 0;
