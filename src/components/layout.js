@@ -29,18 +29,10 @@ const TextH2 = styled.h2`
   font-size: 16px;
   margin: 0;
 `
-const Title = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  color: white;
-  width: 250px;
-  height: auto;
-  min-height: 100vh;
-
+const StickyContents = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
   & > ${TextH2} {
     :nth-of-type(1) {
       margin: 10px 0px 5px 0px;
@@ -50,6 +42,37 @@ const Title = styled.div`
       font-size: 20px;
     }
   }
+`
+const StickyWrapper = styled.div`
+  position: fixed;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 100%;
+  display: table;
+  text-align: center;
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+`
+const Title = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: black;
+  color: white;
+  width: 250px;
+  height: auto;
+  min-height: 100vh;
+
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     margin: 0 auto;
     height: 250px;
@@ -145,9 +168,15 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Title>
-        {typeof window !== 'undefined' && <P5Wrapper sketch={Wave} />}
-        <TextH2 style={{ fontFamily: `'Rock Salt', cursive` }}>Soobin Bak</TextH2>
-        <TextH2>Frontend Developer</TextH2>
+        <StickyWrapper>
+          <StickyContents>
+            {typeof window !== 'undefined' && <P5Wrapper sketch={Wave} />}
+            <TextH2 style={{ fontFamily: `'Rock Salt', cursive` }}>Soobin Bak</TextH2>
+            <TextH2>Frontend Developer</TextH2>
+          </StickyContents>
+        </StickyWrapper>
+
+
         {/* <NavSlide /> */}
       </Title>
       <Nav >
