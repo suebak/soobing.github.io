@@ -5,13 +5,11 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
 import styled from "@emotion/styled"
 import ParkVideo from "../images/park.mp4"
 
 const Wrapper = styled.div`
-  & > h1 {
-
-  }
   & > p {
     line-height: 1.8;
     font-size: 15px;
@@ -25,6 +23,11 @@ const Video = styled.video`
   display: flex;
   flex-direction: row;
   margin-left: auto;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
+    max-width: 100%;
+  }
 `
 const LinkDiv = styled.div`
   & > a {
@@ -55,6 +58,9 @@ const IndexPage = () => {
         <source src={ParkVideo} type="video/ogg" />
           Your browser does not support HTML5 video.
       </Video>
+      <p>
+        👉🏻 기존 블로그는 <a href='https://blog.naver.com/qls0147'>여기서</a> 볼 수 있습니다.
+      </p>
       <LinkDiv>
         {/* 👉🏻 <Link to="/resume/">이력서 보기</Link> */}
       </LinkDiv>
@@ -63,7 +69,7 @@ const IndexPage = () => {
       <Image />
     </div> */}
 
-  </Layout>
+  </Layout >
 }
 
 export default IndexPage
