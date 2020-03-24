@@ -36,7 +36,7 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
   background: #ffeb3b5e;
-  width: 60px;
+  width: 300px;
   height: auto;
   min-height: 100vh;
 
