@@ -40,6 +40,7 @@ const StickyContents = styled.div`
     :nth-of-type(2) {
       font-family: 'Permanent Marker', cursive;
       font-size: 20px;
+      color: #fff13ff0;
     }
   }
 `
