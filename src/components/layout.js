@@ -13,6 +13,7 @@ import { Link } from "gatsby"
 import { SCREEN_WIDTH_BOUND, CONTENTS_WIDTH_BOUND } from '../constants';
 
 import Mover from "../components/mover"
+import Wave from "../components/wave"
 import "./layout.css"
 import styled from "@emotion/styled"
 
@@ -35,7 +36,7 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
   background: #ffeb3b5e;
-  width: 300px;
+  width: 60px;
   height: auto;
   min-height: 100vh;
 
@@ -143,7 +144,7 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Title>
-        {typeof window !== 'undefined' && <P5Wrapper sketch={Mover} />}
+        {typeof window !== 'undefined' && <P5Wrapper sketch={Wave} />}
         <TextH2 style={{ fontFamily: `'Rock Salt', cursive` }}>Soobin Bak</TextH2>
         <TextH2>Frontend Developer</TextH2>
         {/* <NavSlide /> */}
