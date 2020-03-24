@@ -74,7 +74,7 @@ export default function Index({ data, location }) {
   console.log(posts)
   return (
     <Layout>
-      <SEO title="Blog List:: Soobing's Story"
+      <SEO title="Blog :: Soobing's Story"
         description="개발(React, Gatsby, Next.js, and so on...)과 여행에 관한 이야기들:: Soobing's Story"
         pathname={location.pathname} />
       <Wrapper>
