@@ -22,10 +22,10 @@ const Wave = (p) => {
         const angle = xAngle * (x / width) + yAngle * (y / height);
 
         // each particle moves in a circle
-        const myX = x + 20 * Math.cos(2 * PI * t + angle);
-        const myY = y + 20 * Math.sin(2 * PI * t + angle);
+        const myX = x + 10 * Math.cos(2 * PI * t + angle);
+        const myY = y + 10 * Math.sin(2 * PI * t + angle);
 
-        p.ellipse(myX, myY, 20); // draw particle
+        p.ellipse(myX, myY, 15); // draw particle
       }
     }
 
