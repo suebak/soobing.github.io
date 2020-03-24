@@ -3,7 +3,7 @@ const Wave = (p) => {
   let t = 0; // time variable
 
   p.setup = function () {
-    p.createCanvas(60, 360);
+    p.createCanvas(60, 120);
     p.noStroke();
     p.fill(220, 200, 40);
   }

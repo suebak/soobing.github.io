@@ -35,8 +35,9 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #ffeb3b5e;
-  width: 300px;
+  background: black;
+  color: white;
+  width: 250px;
   height: auto;
   min-height: 100vh;
 
@@ -71,7 +72,7 @@ const NavItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fd8b66;
+  background: black;
   & > a {
     font-size: 14px;
     font-weight: bold;
