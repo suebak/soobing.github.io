@@ -36,6 +36,7 @@ const Wrapper = styled.div`
     h6 {font-size: 13px; margin-bottom: 20px;}
   }
 `
+const Comment = styled.div``
 export default function Template({ data, location }) {
   const { markdownRemark: post, site } = data;
   const siteTitle = site.siteMetadata.title;

@@ -56,7 +56,7 @@ const IndexPage = () => {
           Your browser does not support HTML5 video.
       </Video>
       <LinkDiv>
-        👉🏻 <Link to="/resume/">이력서 보기</Link>
+        {/* 👉🏻 <Link to="/resume/">이력서 보기</Link> */}
       </LinkDiv>
     </Wrapper>
     {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>

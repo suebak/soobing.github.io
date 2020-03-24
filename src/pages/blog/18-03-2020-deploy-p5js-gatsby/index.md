@@ -19,7 +19,7 @@ description: react-p5-wrapper 혹은 react-p5 라이브러리를 사용하여 p5
  {typeof window !== 'undefined' && <P5Wrapper sketch={Mover} />}
 ```
 
-![forkyImageTest](../../../images/forky.png)
-<img src="../../../images/forky.png" alt="forkyImageTest" width="200"/>
+<!-- ![forkyImageTest](../../../images/forky.png)
+<img src="../../../images/forky.png" alt="forkyImageTest" width="200"/> -->
 
 <center><img src="../../../images/forky.png" width="10" height="10" alt='forkyImageTest'></center>
