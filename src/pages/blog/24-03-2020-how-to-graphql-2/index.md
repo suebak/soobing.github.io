@@ -1,8 +1,8 @@
 ---
-path: "/blog/how-to-graphQL-1"
+path: "/blog/how-to-graphQL-2"
 date: "2020-03-24T02:19:56.122Z"
 categories: graphQL
-title: graphQL을 사용해보자 #2
+title: 'graphQL을 사용해보자 #2'
 description: GraphQL schemas
 ---
 
