@@ -123,24 +123,23 @@ const Nav = styled.header`
   & > ${NavItem} + ${NavItem}{
     margin-top: 5px;
   }
-
   @media screen and (max-width: ${SCREEN_WIDTH_BOUND}){
     display: flex;
     flex-direction: row;
-    margin: 0px 30px 0px auto;
+    margin: 0px 50px 0px auto;
     height: 30px;
     width: 120px;
     & > ${NavItem} {
       display: flex;
       margin-left: auto;
-      width: 48px;
+      min-width: 50px;
       border-radius: 0px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       height: 30px;
       
       & > a {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
     & > ${NavItem} + ${NavItem}{
@@ -187,7 +186,7 @@ const Layout = ({ children }) => {
 
         {/* <NavSlide /> */}
       </Title>
-      <Nav >
+      <Nav>
         <NavItem> <Link to="/">about</Link></NavItem>
         <NavItem> <Link to="/blog">blog</Link></NavItem>
         <NavItem onClick={() => window.open('https://github.com/soobing')}><img src={GithubIcon} /></NavItem>
