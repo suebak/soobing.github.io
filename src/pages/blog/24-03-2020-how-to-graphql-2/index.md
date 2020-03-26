@@ -2,9 +2,31 @@
 path: "/blog/how-to-graphQL-2"
 date: "2020-03-24T02:19:56.122Z"
 categories: graphQL
-title: 'graphQL을 사용해보자 #2'
+title: 'graphQL #2 용어정리'
 description: GraphQL schemas
 ---
+# Type
+GraphQL은 어느 언어에서도 사용할 수 있도록하기 위해 자체적으로 query 언어를 만들었다.
+자체적으로 언어를 만들었으니 타입이 있겠지? 
+타입은 크게 3가지가 있다.
+1) Object types 2) Scalars 3) Enums 
+## Object types
+- Object type은 Query, Mutation, Input 타입들 까지 포함하고, 직접 Object 타입을 만들 수 도 있다.
+- Object typee들은 모두 Arguments(매개변수)들을 받을 수 있다. 안받아도 상관없고~
+### Query Type
+### Mutation Type
+### Input type
+
+## Scalars
+## Enums
+
+# Type modifier
+## !
+## []
+
+# Interfaces
+# Union types
+
 
 # GraphQL schemas
 GraphQL schemas는 [SDL(Schema Definition Language)](https://www.prisma.io/blog/graphql-sdl-schema-definition-language-6755bcb9ce51) 로 작성되어 있다. SDL은 data structures를 정의할 수 있게 타입시스템이 있다.

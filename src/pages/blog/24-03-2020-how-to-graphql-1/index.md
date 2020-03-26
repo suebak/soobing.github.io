@@ -2,7 +2,7 @@
 path: "/blog/how-to-graphQL-1"
 date: "2020-03-24T01:19:56.122Z"
 categories: graphQL
-title: 'graphQL을 사용해보자 #1'
+title: 'graphQL #1 GraphQL 서버'
 description: React + Node.js를 사용하여 graphQL을 사용하는 법
 ---
 
