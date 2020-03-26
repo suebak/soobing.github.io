@@ -16,7 +16,7 @@ import Mover from "../components/mover"
 import Wave from "../components/wave"
 import "./layout.css"
 import styled from "@emotion/styled"
-
+import GithubIcon from "../images/github.png"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -104,6 +104,13 @@ const NavItem = styled.div`
     text-decoration: none;
     font-family: 'Life Savers', cursive;
   }
+
+  & > img {
+    border: 2px solid white;
+    filter: invert(100%); 
+    width: 24px;
+    cursor: pointer;
+  }
  `
 const Nav = styled.header`
   margin-top: 30px;
@@ -183,6 +190,7 @@ const Layout = ({ children }) => {
       <Nav >
         <NavItem> <Link to="/">about</Link></NavItem>
         <NavItem> <Link to="/blog">blog</Link></NavItem>
+        <NavItem onClick={() => window.open('https://github.com/soobing')}><img src={GithubIcon} /></NavItem>
       </Nav>
       <Contents>
         <Main>{children}</Main>
