@@ -21,8 +21,7 @@ GraphQL은 어느 언어에서도 사용할 수 있도록하기 위해 자체적
 ## Enums
 
 # Type modifier
-## !
-## []
+Type modifier에는 `!`와 `[]`가 있다.
 
 # Interfaces
 # Union types
