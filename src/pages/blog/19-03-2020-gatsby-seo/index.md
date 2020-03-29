@@ -89,7 +89,8 @@ featured: ./woorank.png
 
 7. Comment [댓글](https://www.gatsbyjs.org/docs/adding-comments/) 기능 추가
     + gittalk과 [disqus](https://www.gatsbyjs.org/packages/gatsby-plugin-disqus/) 고민중
-
+## Result
+  53점으로 최종 스코어 마무리~!
 ## 참고하면 좋은 사이트들
 * [Putting SEO First with Gatsby
 ](https://www.wesleylhandy.net/blog/seo-accessibility-first-gatsby.html)
