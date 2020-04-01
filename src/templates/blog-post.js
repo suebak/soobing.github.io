@@ -1,92 +1,95 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-// import '../css/blog-post.css';
+import React, { useEffect } from 'react'
+import { graphql } from 'gatsby'
 
-import styled from "@emotion/styled"
-import { CONTENTS_WIDTH_BOUND } from '../constants';
+import * as Elements from '../components/elements'
+import { Layout } from '../layout'
+import { Head } from '../components/head'
+import { PostTitle } from '../components/post-title'
+import { PostDate } from '../components/post-date'
+import { PostContainer } from '../components/post-container'
+import { SocialShare } from '../components/social-share'
+import { SponsorButton } from '../components/sponsor-button'
+import { Bio } from '../components/bio'
+import { PostNavigator } from '../components/post-navigator'
+import { Disqus } from '../components/disqus'
+import { Utterences } from '../components/utterances'
+import * as ScrollManager from '../utils/scroll'
 
-const H1 = styled.h1`
-  font-size: 30px !important;
-  margin-top: 40px !important;
-  margin-bottom: 80px !important;
-  @media screen and (max-width: ${CONTENTS_WIDTH_BOUND}){
-    font-size: 22px !important;
-    margin-top: 10px !important;
-    margin-bottom: 40px !important;
-  }
-`
-const Wrapper = styled.div`
-  * {font-size: 13.5px; line-height: 1.3; font-family: 'Noto Sans KR', sans-serif;}
-    h1 {font-size: 23px}
-    h2 {font-size: 20px; margin-bottom: 20px;}
-    h3 {font-size: 18px; margin-bottom: 20px;}
-    h4 {font-size: 16px; margin-bottom: 20px;}
-    h5 {font-size: 14px; margin-bottom: 20px;}
-    h6 {font-size: 13.8px; margin-bottom: 20px;}
-  @media screen and (max-width: ${CONTENTS_WIDTH_BOUND}){ 
-    * {font-size: 13px; line-height: 1.3; font-family: 'Noto Sans KR', sans-serif;}
-    h1 {font-size: 18px}
-    h2 {font-size: 16px; margin-bottom: 20px;}
-    h3 {font-size: 14px; margin-bottom: 20px;}
-    h4 {font-size: 13.8px; margin-bottom: 20px;}
-    h5 {font-size: 13.5px; margin-bottom: 20px;}
-    h6 {font-size: 13px; margin-bottom: 20px;}
-  }
-`
-const Comment = styled.div``
-export default function Template({ data, location }) {
-  const { markdownRemark: post, site } = data;
-  const siteTitle = site.siteMetadata.title;
-  const image = post.frontmatter.image ? post.frontmatter.image.childImageSharp.resize : null;
+import '../styles/code.scss'
+import 'katex/dist/katex.min.css'
 
-  console.log('* data', data)
-  console.log('** site', site)
-  console.log('** markdownRemark(post)', post)
-  console.log('* location', location)
+export default ({ data, pageContext, location }) => {
+  useEffect(() => {
+    ScrollManager.init()
+    return () => ScrollManager.destroy()
+  }, [])
+
+  const post = data.markdownRemark
+  const metaData = data.site.siteMetadata
+  const { title, comment, siteUrl, author, sponsor } = metaData
+  const { disqusShortName, utterances } = comment
+  const { title: postTitle, date, thumbnail } = post.frontmatter
+  const thumbnailSrc = thumbnail
+    ? `${siteUrl}${thumbnail.childImageSharp.fixed.src}`
+    : undefined
+
   return (
-    <Layout className="blog-post-container">
-      <SEO title={post.frontmatter.title + ` :: Soobing's Story`}
-        description={post.frontmatter.description || post.excerpt}
-        image={image}
-        pathname={location.pathname} />
-      {/* <SEO title={post.frontmatter.title + ` :: Soobing's Story`} /> */}
-      <Wrapper>
-        <H1>{post.frontmatter.title}</H1>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
+    <Layout location={location} title={title}>
+      <Head
+        title={postTitle}
+        description={post.excerpt}
+        thumbnail={thumbnailSrc}
+      />
+      <PostTitle title={postTitle} />
+      <PostDate date={date} />
+      <PostContainer html={post.html} />
+      <SocialShare title={postTitle} author={author} />
+      {!!sponsor.buyMeACoffeeId && (
+        <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
+      )}
+      <Elements.Hr />
+      <Bio />
+      <PostNavigator pageContext={pageContext} />
+      {!!disqusShortName && (
+        <Disqus
+          post={post}
+          shortName={disqusShortName}
+          siteUrl={siteUrl}
+          slug={pageContext.slug}
         />
-      </Wrapper>
+      )}
+      {!!utterances && <Utterences repo={utterances} />}
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
         author
+        siteUrl
+        comment {
+          disqusShortName
+          utterances
+        }
+        sponsor {
+          buyMeACoffeeId
+        }
       }
     }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 280)
+      html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
         title
-        description
-        image: featured {
+        date(formatString: "MMMM DD, YYYY")
+        thumbnail {
           childImageSharp {
-            resize(width: 1200) {
+            fixed(width: 800) {
               src
-              height
-              width
             }
           }
         }
