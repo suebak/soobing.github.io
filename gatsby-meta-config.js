@@ -6,13 +6,16 @@ module.exports = {
   siteUrl: `https://soobing.netlify.com`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
-    github: `https://github.com/soobing`, // Your GitHub account
+    github: `soobing`, // Your GitHub account
     medium: ``, // Your Medium account
-    facebook: ``, // Your Facebook account
+    facebook: `100004675082572`, // Your Facebook account
     linkedin: ``, // Your LinkedIn account
   },
   icon: `content/assets/felog.png`, // Add your favicon
-  keywords: [`blog`],
+  keywords: [
+    `blog`,
+    `javascript`,
+    `react`],
   comment: {
     disqusShortName: '', // Your disqus-short-name. check disqus.com.
     utterances: 'soobing/soobing.github.io', // Your repository for archive comment
