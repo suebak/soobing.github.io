@@ -53,6 +53,7 @@ body.dark {
     }
     &:hover {
       // text-shadow: $dark-hover-text-shadow;
+      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.11), 0 1px 10px 0 rgba(256, 256, 256, 0.2);
     }
   }
 
