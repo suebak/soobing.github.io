@@ -6,7 +6,7 @@ thumbnail: './images/leetcode.jpg'
 draft: false
 ---
 
-![](./images/leetcode.jpg)
+![leetcode](./images/leetcode.jpg)
 
 <hr/>
 
