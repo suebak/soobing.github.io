@@ -17,14 +17,14 @@ draft: false
 # 문제 해결
 이 문제는 다이나믹 프로그래밍으로 오른쪽 부터 모든 경우의 수를 구해보면 문제 풀이가 쉬워집니다.
 모든 경우의 수를 찾으면 다음과 같고,
-![maximum-subway](./images/maximum-subway-1.jpg)
+![maximum-subway-1](./images/maximum-subway-1.png)
 
 메모이제이션을 사용하면 모든 경우의 수를 다음과 같이 구할 수 있습니다.
-![maximum-subway](./images/maximum-subway-2.jpg)
+![maximum-subway-2](./images/maximum-subway-2.png)
 
 항상 모든 값을 저장하고 있을 필요는 없고, 현재 값, 지난 값에서 최댓값, 여태껏 가장 최댓값(정답)을 가지고 비교를 하면 됩니다.
 그림을 참고하시고 제가 풀이한 코드를 보시면 더 쉽게 이해할 수 있습니다.
-![maximum-subway](./images/maximum-subway-3.jpg)
+![maximum-subway-3](./images/maximum-subway-3.png)
 
 ## 1) DP
 ```js
