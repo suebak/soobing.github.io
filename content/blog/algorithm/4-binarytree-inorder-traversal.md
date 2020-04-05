@@ -1,5 +1,5 @@
 ---
-title: 4-binarytree-inorder-traversal
+title: Binarytree Inorder Traversal
 date: 2020-04-04 12:04:95
 category: algorithm
 thumbnail: './images/binarytree-inorder-traversal.jpg'
