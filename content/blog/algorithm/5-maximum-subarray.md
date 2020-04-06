@@ -1,5 +1,5 @@
 ---
-title: Maximum Subarray
+title: 🚇 Maximum Subway
 date: 2020-04-04 14:04:57
 category: algorithm
 thumbnail: './images/maximum-subway.jpg'

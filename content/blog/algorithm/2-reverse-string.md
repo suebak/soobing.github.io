@@ -1,5 +1,5 @@
 ---
-title: 🥢Reverse String
+title: 🏁Reverse String
 date: 2020-04-02 23:04:39
 category: algorithm
 thumbnail: './images/reverse-string.jpg'
