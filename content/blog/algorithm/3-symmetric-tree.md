@@ -1,5 +1,5 @@
 ---
-title: 🙌🏻 Symmetric Tree
+title: 🍎 Symmetric Tree
 date: 2020-04-03 16:04:69
 category: algorithm
 thumbnail: './images/symmetric-tree.jpg'
