@@ -12,61 +12,42 @@ draft: false
 ![anagrams](./images/group-anagrams.jpg)
 
 # 문제 요약
-anagrams은 해당 
+anagrams은 단어를 구성하는 알파벳을 재배열해서 새로운 단어를 만들 수 있는 것을 말한다. 그래서 문제의 예시처럼 "eat", "tea", "ate"는 하나의 anagrams 그룹으로 묶을 수 있다.
 
 # 문제 해결
-문제는 해결했는데 공간 복잡도 O(1), 시간 복잡도 O(n^2)으로 해결했다. O(n)으로 해결할 수 있는 방법들이 솔루션에 있었는데 해당 방법들도 다시 검토 해 볼 필요가 있다.
+anagram인지는 어떻게 판단하면 좋을까? 단어를 구성하는 알파벳을 순서대로 정렬한 다음 비교해보면 될 것이다. `s.split('').sort().join('')` 이렇게! 문제에서 anagram이 있는지 찾는지를 어떻게 구현할지도 생각해 봐야하는데, key값으로 `구성하는 알파벳을 순서대로 정렬한 값`을 저장해서 판단하도록 하면된다. 이것이 가장 심플하고 복잡도도 낮다.
 
-## 1) Brute Force ~~(무식한 방법)~~
-브루트포스 알고리즘은 모는 경우의 수를 다해보는 알고리즘이다. 난 이렇게 안했다. 이렇게 하면 공간복잡도는 O(n), 시간 복잡도가 이미 O(n^n)이 되버린다. n제곱도아니고 n^n이다 ㅋㅋㅋ
+실제로 leetcode solution을 보면 
+  * Approach 1: Categorize by Sorted String
+  * Approach 2: Categorize by Count
+두 가지가 있는데, JS의 map을 이용하면 Approach 1로 쉽게 풀 수 있고, Approach 2는 크게 매력적인 해결책이 아니어서 패스하도록한다.
 
-## 2) Peak Valley Approach
-난 이방법으로 해결했다.
-peak와 valley를 찾아서 그 차이를 계속 더하는 것이다.
-난 일단 순회를 하되 현재 순회중인 애가 Peak인지 확인하게 했고, valley를 가리키는 포인터(index)를 저장하여 그것의 차를 뺐다.
-그림을 보면 더욱 이해가 쉽다.
-![best-time-to-buy-and-sell-stock2-2](./images/best-time-to-buy-and-sell-stock2.jpg)
-코드는 내가 짠게 더 쉬운것 같아서 내 코드를 첨부한다.
-  * 시간 복잡도 O(n), 공간복잡도 O(1)
+
+## 1) Categorize by Sorted String
+위에서 이야기 했듯이 단어를 구성하는 알파벳을 순서대로 정렬한 다음 key값으로 저장하여 비교한다.
 
 ```js
 /**
- * @param {number[]} prices
- * @return {number}
+ * @param {string[]} strs
+ * @return {string[][]}
  */
-var maxProfit = function(prices) {
-    let minIdx = 0;
-    let sum = 0;
-    for(let i=0; i<prices.length; i++) {
-        if(prices[minIdx] > prices[i]) {
-            minIdx = i;
-        }
-        if(prices[minIdx] < prices[i]) {
-            sum += prices[i] -  prices[minIdx];
-            minIdx = i;
+var groupAnagrams = function (strs) {
+    const map = new Map();
+    const getKey = (s) => {
+        return s.split('').sort().join('')
+    }
+    for (let item of strs) {
+        const key = getKey(item);
+        if (map.get(key)) {
+            map.get(key).push(item);
+        } else {
+            map.set(key, [item]);
         }
     }
-    return sum;
+    return [...map.values()];
 };
 ```
-
-## 2) Simple One Pass
-이렇게 쉬운 문제였는데! 사실 세번째 풀이를 보면 이 문제는 그냥 현재보다 전것이 더 작은 것의 차의 합을 구하는 문제였다는 것을 알 수 있다.
-내가 짠 코드랑 complexity는 동일해서 큰 아쉬움은 없지만, 그래도 좀 더 크게 문제를 바라봐야겠다.
-![best-time-to-buy-and-sell-stock2-3](./images/best-time-to-buy-and-sell-stock2.jpg)
-  * 시간 복잡도 O(n), 공간복잡도 O(1)
-```js
-/**
- * @param {number[]} prices
- * @return {number}
- */
-var maxProfit = function(prices) {
-    let sum = 0;
-    for(let i=1; i<prices.length; i++) {
-        if(prices[i] > prices[i-1]) {
-            sum += prices[i] - prices[i - 1];
-        }
-    }
-    return sum;
-};
-```
+# 소감
+사실 위의 해결책은 내 코드는 아니었고, 검색하다가 다른사람의 코드를 참고했다. 
+나는 정말 if를 떡칠하면서 오랜 시간동안 문제를 해결하지 못했다. 너무 오랫동안 고민해서 그런가 저 코드를 보고 엄청나게 충격적이었다. 너무 심플해서 🤯
+그치만 덕분에 다음문제를 내 스스로 풀 수 있었다.
