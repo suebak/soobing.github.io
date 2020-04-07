@@ -1,5 +1,5 @@
 ---
-title: Group Anagrams
+title: 🏵 Group Anagrams
 date: 2020-04-07 22:04:18
 category: algorithm
 thumbnail: './images/group-anagrams.jpg'
